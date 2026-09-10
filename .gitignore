@@ -50,6 +50,7 @@ Thumbs.db
 .env
 .env.local
 .env.*.local
+.env.prod
 
 # Logs
 *.log
@@ -59,6 +60,7 @@ logs/
 *.db
 *.sqlite
 *.sqlite3
+chroma_data/
 
 # OS
 .DS_Store
@@ -69,3 +71,6 @@ logs/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+
+uploads/
