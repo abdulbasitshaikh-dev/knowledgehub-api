@@ -1,4 +1,5 @@
 from functools import lru_cache
+import os 
 
 from ollama import Client
 
@@ -11,7 +12,10 @@ def get_llm_config() -> tuple[str, int]:
 @lru_cache(maxsize=1)
 def get_ollama_client() -> Client:
     return Client(
-        host="http://host.docker.internal:11434"
+        host=os.getenv(
+            "OLLAMA_HOST",
+            "http://host.docker.internal:11434",
+        )
     )
 
 

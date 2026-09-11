@@ -1,4 +1,5 @@
 from functools import lru_cache
+import os
 
 
 @lru_cache(maxsize=1)
@@ -6,8 +7,8 @@ def get_collection():
     import chromadb
 
     client = chromadb.HttpClient(
-    host="chroma",
-    port=8000,
+        host=os.getenv("CHROMA_HOST", "chroma"),
+        port=int(os.getenv("CHROMA_PORT", "8000")),
     )
     
     return client.get_or_create_collection(name="document_chunks")
