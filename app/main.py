@@ -19,6 +19,7 @@ from app.dependencies import get_current_user
 from .routers.documents import router as document_router
 from .routers.search import router as search_router
 from .routers.ask import router as ask_router
+from app.exception_handlers import global_exception_handler
 
 
 from fastapi import (
@@ -31,6 +32,10 @@ app = FastAPI(
     title="KnowledgeHub API",
 )
 
+app.add_exception_handler(
+    Exception,
+    global_exception_handler,
+)
 
 @app.get("/")
 def home():

@@ -44,7 +44,7 @@ def search_similar_chunks(
     embedding: list[float],
     document_ids: list[int],
     limit: int = 5,
-    max_distance: float = 0.8,
+    max_distance: float = 1.5,
 ):
     if not document_ids:
         return {
